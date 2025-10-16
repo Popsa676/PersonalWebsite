@@ -1,0 +1,109 @@
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 22vw;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #efefef;
+  overflow-x: hidden;
+  padding: 50px;
+  padding-top: 150px;
+}
+
+.sidenav:hover {
+  background-color: #ebe9fc;
+}
+
+.avatar {
+  width: 130px;
+  border-radius: 50%;
+}
+
+.name {
+  margin-top: 30px;
+  font-size: x-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: normal;
+  text-align: center;
+}
+
+.status {
+  margin-top: 5px;
+  font-size: medium;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: normal;
+  text-align: center;
+}
+
+.body {
+  margin: 15px 15px 0px 15px;
+  font-size: small;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: normal;
+}
+
+.main {
+  height: 100vh;
+  width: 78vw;
+}
+
+.message_area {
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  top: 0;
+}
+
+.bottom_bar {
+  display: flex;
+  flex-direction: row;
+  height: 8vh;
+  margin-left: 450px;
+  position: relative;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  overflow-y: hidden;
+  outline: #efefef;
+}
+
+.message_input {
+  width: 100vw;
+  height: 46px;
+  margin-left: 10px;
+  margin-top: 2px;
+  padding-left: 30px;
+  background-color: #efefef;
+  color:#bbb;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+  border: 0px;
+  border-radius: 50px;
+}
+
+.message_input:hover {
+  background-color: #ebe9fc;
+}
+
+.message_input:focus {
+  outline-color: #bbb;
+  background-color: #ebe9fc;
+  color:#000;
+}
+
+.send_button {
+  height: 50px;
+  width: 50px;
+  margin-top: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  content:url('send.png');
+}
+
+.send_button:hover {
+  content:url('send_hover.png')
+}
