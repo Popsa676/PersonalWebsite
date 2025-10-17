@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -21,7 +22,8 @@
     </div>
 
     <main>
-        <div class="message_area">
+        <div id="message_area" class="message_area">
+            <p class="bot_message_object" style="width:120px">yo. whats up?</p>
         </div>
 
         <div class="bottom_bar">
@@ -29,6 +31,6 @@
             <input type="image" id="send_button" class="send_button">
         </div>
     </main>
-    <script src="/script.js"></script>
+    <script type="module" src="/script.mjs"></script>
 </body>
 </html>
