@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/Popsa676/PersonalWebsite/issues"
   },
-  "homepage": "https://github.com/Popsa676/PersonalWebsite#readme"
+  "homepage": "https://github.com/Popsa676/PersonalWebsite#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
