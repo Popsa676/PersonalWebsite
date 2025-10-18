@@ -53,11 +53,12 @@
 }
 
 .message_area {
+  display: flex;
+  flex-direction: column-reverse;
+  overflow: auto;
+  height: 90vh;
   width: 72vw;
   margin-left: 26vw;
-  display: flex;
-  flex-direction: column;
-  height: 90vh;
   top: 0;
 }
 

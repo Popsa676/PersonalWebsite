@@ -10,7 +10,7 @@ send_button.addEventListener("click", function() {
     new_user_message.classList.add("user_message_object");
     new_user_message.style.width = Math.min((user_message.length * 10), 500).toString() + "px";
     new_user_message.textContent = user_message;
-    message_area.appendChild(new_user_message);
+    message_area.prepend(new_user_message);
 
     $.ajax({
       url: "http://localhost:3000/request",
@@ -23,14 +23,24 @@ send_button.addEventListener("click", function() {
         response = response.toString().replace(/\\n/g, "");
         response = response.replace(/'/g, "");
         response = response.replace(/"/g, "");
+        response = response.replace(/<start-of-turn>/g, "");
+        response = response.replace(/<end-of-turn>/g, "");
         let new_bot_message = document.createElement("p");
         new_bot_message.classList.add("bot_message_object");
         new_bot_message.style.width = Math.min((response.length * 10), 500).toString() + "px";
         new_bot_message.textContent = response;
-        message_area.appendChild(new_bot_message);
+        message_area.prepend(new_bot_message);
       }, 
       error: function(xhr, status, error) {
         console.error("AJAX Error: ", error)
       }
     });
+});
+
+message_input.addEventListener("keypress", function(event) {
+  
+  if (event.key == 'Enter') {
+    event.preventDefault();
+    send_button.click();
+  }
 });

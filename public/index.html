@@ -14,10 +14,10 @@
         <h1 style="color: #111111" class="name">Saaket Potluri</h1>
         <h2 style="color: #808080" class="status">University of Maryland Student </h2>
         <p style="color: #111111" class="body">
-            Hello! I'm an India-born, America-raised student who studies Computer Science with the intent of earning a Master's Degree.
-            I spent the first 8 of my 19 years near Seattle in Washington before moving to a town called Urbana in Maryland. After
-            coming to UMD, I picked up badminton as a hobby and am now part of the Terps Badminton Club team. I hope
-            you enjoy messaging my chatbot!
+            Hello! Here you can simulate a text message conversation with an AI version of me. This chatbot is currently running
+            on a Gemma:1B model with Ollama. The user input is sent via an AJAX post to a server script using JQuery and unpacked 
+            by Express.js, where it is inputed to a Python script. The Ollama Python library runs it through the LLM before the 
+            response is returned by the AJAX post and the script updates the HTML accordingly. Ask me anything!
         </p>
     </div>
 
