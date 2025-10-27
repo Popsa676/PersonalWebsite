@@ -19,12 +19,12 @@ send_button.addEventListener("click", function() {
       data: user_message,
       dataType: 'text',
       success: function(response) {
-        response = response.toString().replace(/\n/g, "");
+        /*response = response.toString().replace(/\n/g, "");
         response = response.toString().replace(/\\n/g, "");
         response = response.replace(/'/g, "");
         response = response.replace(/"/g, "");
         response = response.replace(/<start-of-turn>/g, "");
-        response = response.replace(/<end-of-turn>/g, "");
+        response = response.replace(/<end-of-turn>/g, "");*/
         let new_bot_message = document.createElement("p");
         new_bot_message.classList.add("bot_message_object");
         new_bot_message.style.width = Math.min((response.length * 10), 500).toString() + "px";

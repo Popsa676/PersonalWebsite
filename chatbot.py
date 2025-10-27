@@ -1,14 +1,15 @@
 import sys
-from ollama import chat
-from ollama import ChatResponse
+import ollama
 
-fixed_response = ""
+with open("system_message.txt", "r") as file:
+    content = file.read()
+
+ollama.create(model='chatbot', from_='gpt-oss:20b', system=content)
 
 if __name__ == "__main__":
     user_message = sys.argv[1]
-    response : ChatResponse = chat(
-        model = 'gemma3:1b',
+    response : ollama.ChatResponse = ollama.chat(
+        model = 'chatbot',
         messages = [{'role': 'user', 'content': user_message}]
     )
-    fixed_response = str((response.message.content).encode('ascii', 'ignore'))[1:]
-    print(fixed_response, end='')
+    print(response.message.content)

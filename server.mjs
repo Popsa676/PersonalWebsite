@@ -2,21 +2,15 @@ import { spawn } from 'child_process';
 import express from 'express';
 const app = express();
 import path from 'path';
-import fs from 'fs';
 
 const hostname = 'localhost';
 const port = 3000;
 
-const text_path = import.meta.dirname + '\\system_message.txt';
 const python_path = import.meta.dirname + '\\chatbot.py'
 var conversation_history = "";
 var delimiter = "This is the next message in the coversation. Only respond to this message."
 var user_message = "";
 var response = "";
-
-fs.readFile(text_path, 'utf8', (err, data) => {
-    conversation_history += data;
-});
 
 app.use(express.static(path.join(import.meta.dirname, 'public')));
 app.use(express.urlencoded({extended:true}));
@@ -34,7 +28,7 @@ app.post("/request", (req, res) => {
         response = data.toString();
         res.send(response);
     });
-    conversation_history = conversation_history + "<start-of-turn>user\n" + user_message + '<end-of-turn>\n';
-    conversation_history = conversation_history + "<start-of-turn>model\n" + response + '<end-of-turn>\n';
+    conversation_history =  conversation_history + "<|start|>user<|message|>" + user_message + '<|end|>\n';
+    conversation_history = conversation_history + "<|start|>assistant<|message|>" + response + '<|end|>\n';
 });
 
