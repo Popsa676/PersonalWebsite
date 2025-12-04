@@ -4,7 +4,7 @@ const app = express();
 import path from 'path';
 
 const hostname = 'localhost';
-const port = 3000;
+const port = 8000;
 
 const python_path = import.meta.dirname + '\\chatbot.py'
 var conversation_history = "";
