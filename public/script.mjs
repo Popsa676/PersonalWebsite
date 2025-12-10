@@ -1,10 +1,19 @@
+const hostname = 'popsaserver';
+const port = 8000;
+
 var message_area = document.getElementById("message_area");
 var message_input = document.getElementById("message_input");
 var send_button = document.getElementById("send_button");
+var conversation_history = "";
+var delimiter = "This is the next message in the coversation. Only respond to this message. ";
 var user_message = "";
+var bot_message = "";
+sessionStorage.setItem('conversation_history', '');
 
 send_button.addEventListener("click", function() {
     user_message = message_input.value;
+    conversation_history = sessionStorage.getItem('conversation_history');
+
     message_input.value = "";
     let new_user_message = document.createElement("p");
     new_user_message.classList.add("user_message_object");
@@ -13,10 +22,10 @@ send_button.addEventListener("click", function() {
     message_area.prepend(new_user_message);
 
     $.ajax({
-      url: "http://localhost:8000/request",
+      url: '/request',
       type: "POST",
       contentType: "text/plain",
-      data: user_message,
+      data: conversation_history + delimiter + user_message,
       dataType: 'text',
       success: function(response) {
         let new_bot_message = document.createElement("p");
@@ -24,11 +33,13 @@ send_button.addEventListener("click", function() {
         new_bot_message.style.width = Math.min((response.length * 10), 500).toString() + "px";
         new_bot_message.textContent = response;
         message_area.prepend(new_bot_message);
+        bot_message = response;
       }, 
       error: function(xhr, status, error) {
-        console.error("AJAX Error: ", error)
+        console.error("AJAX Error: ", status, error);
       }
     });
+    sessionStorage.setItem('conversation_history', conversation_history + "<|start|>user<|message|>" + user_message + '<|end|>\n' + "<|start|>assistant<|message|>" + bot_message + '<|end|>\n');
 });
 
 message_input.addEventListener("keypress", function(event) {

@@ -1,13 +1,8 @@
 import sys
 import ollama
 
-with open("system_message.txt", "r") as file:
-    content = file.read()
-
 if __name__ == "__main__":
+    model_name = 'saaketgpt'
     user_message = sys.argv[1]
-    response : ollama.ChatResponse = ollama.chat(
-        model = 'fine_tuned_website_assistant',
-        messages = [{'role': 'user', 'content': user_message}]
-    )
-    print(response.message.content)
+    response = ollama.generate(model=model_name, prompt=user_message, keep_alive=-1)
+    print(response['response'])

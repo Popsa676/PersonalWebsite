@@ -25,7 +25,8 @@
   "homepage": "https://github.com/Popsa676/PersonalWebsite#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^5.1.0"
+    "express": "^5.2.1",
+    "express-session": "^1.18.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
