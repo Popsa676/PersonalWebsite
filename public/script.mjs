@@ -7,7 +7,6 @@ var send_button = document.getElementById("send_button");
 var conversation_history = "";
 var delimiter = "This is the next message in the coversation. Only respond to this message. ";
 var user_message = "";
-var bot_message = "";
 sessionStorage.setItem('conversation_history', '');
 
 send_button.addEventListener("click", function() {
@@ -33,7 +32,7 @@ send_button.addEventListener("click", function() {
         new_bot_message.style.width = Math.min((response.length * 10), 500).toString() + "px";
         new_bot_message.textContent = response;
         message_area.prepend(new_bot_message);
-        bot_message = response;
+        sessionStorage.setItem('conversation_history', conversation_history + "<|start|>user<|message|>" + user_message + '<|end|>\n' + "<|start|>assistant<|message|>" + response + '<|end|>\n');
       }, 
       error: function(xhr, status, error) {
         console.error("AJAX Error: ", status, error);

@@ -5,8 +5,9 @@ import path from 'path';
 
 const hostname = 'popsaserver';
 const port = 8000;
+const ollama_python_path = '/home/popsa/.local/share/pipx/venvs/ollama/bin/python';
 
-const python_path = import.meta.dirname + '/chatbot.py';
+const chatbot_py_path = import.meta.dirname + '/chatbot.py';
 var user_message = "";
 var response = "";
 
@@ -21,7 +22,7 @@ const server = app.listen(port, "0.0.0.0", () => {
 app.post('/request', (req, res) => {
     user_message = req.body;
 
-    const python_process = spawn('/home/popsa/.local/share/pipx/venvs/ollama/bin/python', [python_path, user_message])
+    const python_process = spawn(ollama_python_path, [chatbot_py_path, user_message])
     python_process.stdout.on('data', (data) => {
         response = data.toString();
         res.send(response);
