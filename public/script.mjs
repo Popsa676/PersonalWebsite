@@ -31,39 +31,39 @@ send_button.addEventListener("click", function() {
         let new_bot_message = document.createElement("p");
         new_bot_message.classList.add("bot_message_object");
 
-        if (user_message.trim() === "/aboutme") {
-            new_bot_message.textContent = "[saaket] hi there! my name's saaket potluri and i'm a second-year student at the university of maryland majoring in computer science and minoring in math. my programming journey began with block coding lego robots almost 10 years ago, and over that period i've become versed in python, java, c, and javascript with experience in web development, app development, and systems engineering. my most recent passion is ai, which led me to making saaketgpt and will be the focus of my future projects too. when i'm not studying for exams or working on projects, i spend my time lifting at the gym or playing matches on the badminton courts. my other hobbies include biking, reading comics, and playing video games.";
+        if (user_message.trim() === "aboutme") {
+            new_bot_message.textContent = "[saaket] hi! my name's saaket potluri and i'm a second-year student at the university of maryland majoring in computer science and minoring in math. my programming journey began with block coding lego robots almost 10 years ago, and over that period i've become versed in python, java, c, and javascript with experience in web development, app development, and systems engineering. my most recent passion is ai, which led me to making saaketgpt and will be the focus of my future projects too. when i'm not studying for exams or working on projects, i spend my time lifting at the gym or playing matches on the badminton courts. my other hobbies include biking, reading comics, and playing video games.";
             message_area.prepend(new_bot_message);
         }
 
-        else if (user_message.trim() === "/bestmoment") {
+        else if (user_message.trim() === "bestmoment") {
             new_bot_message.textContent = "[saaket] i would say my best moment was when i accomplished losing 50 pounds in one year. i'd struggled with my weight my whole life even with a pretty active lifestyle and trying different diets. it only got worse when i stopped playing sports because of covid, causing my weight to increase to 200 pounds by the beginning of my first year at university. after coming to umd, i started playing badminton for a few hours almost everyday combined with lifting and intermittent fasting. over the following school year, i lost 45 pounds while also increasing my muscle strength significantly. after summer break, i came back to school and lost 5 more pounds in the first few weeks of the semester, bringing me to a total of 50 pounds lost.";
             message_area.prepend(new_bot_message);
         }
 
-        else if (user_message.trim() === "/commands") {
-            new_bot_message.textContent = "'/aboutme', '/bestmoment', '/commands', '/github', '/linkedin', '/reset', '/resume'";
+        else if (user_message.trim() === "commands") {
+            new_bot_message.textContent = "'aboutme', 'bestmoment', 'commands', 'github', 'linkedin', 'reset', 'resume'";
             message_area.prepend(new_bot_message);
         }
 
-        else if (user_message.trim() === "/explore") {
-            new_bot_message.textContent = "[saaket] welcome to my website! i wanted to make this site as unique as possible, so instead of having a bunch of webpages, all that information can be found by putting commands into the message bar below. if you just wanna chat with saaketgpt, type in any message and it'll respond as soon as possible. otherwise, here are a few commands to get you started:\n'/aboutme', '/highlights', '/resume' (use '/commands' for the full list)";
+        else if (user_message.trim() === "explore") {
+            new_bot_message.textContent = "[saaket] welcome to my website! i wanted to make this site as unique as possible, so instead of having a bunch of webpages, all that information can be found by putting commands into the message bar below. if you just wanna chat with saaketgpt, type in any message and it'll respond as soon as possible. otherwise, here are a few commands to get you started:\n'aboutme', 'bestmoment', 'resume' (use 'commands' for the full list)";
             message_area.prepend(new_bot_message);
         }
 
-        else if (user_message.trim() === "/github") {
+        else if (user_message.trim() === "github") {
             window.open("https://github.com/Popsa676", "_blank");
             new_bot_message.textContent = "[opened github in new tab]";
             message_area.prepend(new_bot_message);
         }
 
-        else if (user_message.trim() === "/linkedin") {
+        else if (user_message.trim() === "linkedin") {
             window.open("https://www.linkedin.com/in/saaket-potluri-668488199/", "_blank");
             new_bot_message.textContent = "[opened linkedin in new tab]";
             message_area.prepend(new_bot_message);
         }
 
-        else if (user_message.trim() === "/reset") {
+        else if (user_message.trim() === "reset") {
             sessionStorage.setItem('conversation_history', '');
             message_area.replaceChildren();
             new_bot_message.textContent = "hey";
@@ -74,7 +74,7 @@ send_button.addEventListener("click", function() {
             message_area.prepend(new_bot_message2);
         }
 
-        else if (user_message.trim() === "/resume") {
+        else if (user_message.trim() === "resume") {
             window.open("https://drive.google.com/file/d/1qi_lVRh8b19T2L1YzaIiClU_nf_PmD_S/view?usp=sharing", "_blank");
             new_bot_message.textContent = "[opened resume in new tab]";
             message_area.prepend(new_bot_message);
