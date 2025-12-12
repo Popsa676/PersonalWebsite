@@ -39,14 +39,14 @@ body {
 
 .status {
   margin-top: 5px;
-  font-size: medium;
+  font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: normal;
   text-align: center;
 }
 
 .left p {
-  font-size: small;
+  font-size: medium;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: normal;
   padding: 0 10%;
@@ -86,6 +86,7 @@ body {
   border: 0px;
   border-radius: 40px;
   overflow-wrap: break-word;
+  white-space: pre-line;
 }
 
 .user_message_object {
